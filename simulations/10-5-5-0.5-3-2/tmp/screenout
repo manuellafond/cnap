@@ -1,0 +1,51 @@
+[2J[H
+[2J[H
+Neighbor-Joining/UPGMA method version 3.697
+
+Settings for this run:
+  N       Neighbor-joining or UPGMA tree?  Neighbor-joining
+  O                        Outgroup root?  No, use as outgroup species  1
+  L         Lower-triangular data matrix?  No
+  R         Upper-triangular data matrix?  No
+  S                        Subreplicates?  No
+  J     Randomize input order of species?  No. Use input order
+  M           Analyze multiple data sets?  No
+  0   Terminal type (IBM PC, ANSI, none)?  ANSI
+  1    Print out the data at start of run  No
+  2  Print indications of progress of run  Yes
+  3                        Print out tree  Yes
+  4       Write out trees onto tree file?  Yes
+
+
+  Y to accept these or type the letter for one to change
+[2J[H
+Neighbor-Joining/UPGMA method version 3.697
+
+Settings for this run:
+  N       Neighbor-joining or UPGMA tree?  Neighbor-joining
+  O                        Outgroup root?  No, use as outgroup species  1
+  L         Lower-triangular data matrix?  Yes
+  R         Upper-triangular data matrix?  No
+  S                        Subreplicates?  No
+  J     Randomize input order of species?  No. Use input order
+  M           Analyze multiple data sets?  No
+  0   Terminal type (IBM PC, ANSI, none)?  ANSI
+  1    Print out the data at start of run  No
+  2  Print indications of progress of run  Yes
+  3                        Print out tree  Yes
+  4       Write out trees onto tree file?  Yes
+
+
+  Y to accept these or type the letter for one to change
+
+Cycle   2: species 1 (   1.33333) joins species 2 (   0.66667)
+Cycle   1: node 1 (   1.87500) joins species 3 (   0.62500)
+last cycle:
+ node 1  (   0.37500) joins species 4  (   2.12500) joins species 5  (   3.87500)
+
+Output written on file "outfile"
+
+Tree written on file "outtree"
+
+Done.
+
