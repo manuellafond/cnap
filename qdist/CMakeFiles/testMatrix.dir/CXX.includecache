@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/u/lafonman/Projects/CNV/qdist/Matrix.hpp
+iostream
+-
+include_blas.hpp
+/u/lafonman/Projects/CNV/qdist/include_blas.hpp
+
+/u/lafonman/Projects/CNV/qdist/include_blas.hpp
+cblas.h
+-
+
+/u/lafonman/Projects/CNV/qdist/testMatrix.cpp
+Matrix.hpp
+/u/lafonman/Projects/CNV/qdist/Matrix.hpp
+iostream
+-
+cstdlib
+-
+cmath
+-
+
