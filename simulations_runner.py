@@ -9,6 +9,18 @@ import time
 work_dir = "./simulations"
 nb_runs = 10
 
+
+run_medicc = False
+run_euclid = False
+
+
+for arg in sys.argv[1:]:
+	if arg.startswith("--medicc"):
+		run_medicc = True
+	if arg.startswith("--euclidean"):
+		run_euclid = True
+
+
 #param string format
 #prof_len,nb_leaves,max_events_on_branch,prob_deletion,root_profile_startvals,root_profile_max_delta
 
@@ -89,8 +101,8 @@ for p in param_sets:
 			if os.path.isfile(file_path):
 				os.unlink(file_path)
 		
-		
-		f = open(join(tmpdir, 'tmp.fa'), 'w')
+		fasta_filename = join(tmpdir, 'tmp.fa')
+		f = open(fasta_filename, 'w')
 		f.write(leaves_str)
 		f.close()
 		
@@ -139,4 +151,37 @@ for p in param_sets:
 		os.system(cmd)
 		
 		
+		###############################################
+		# now run medicc on this tree
+		###############################################
+		if run_medicc:
+			medicc_dir = join(dir, "medicc")
+			if not os.path.exists(medicc_dir):
+				os.makedirs(medicc_dir)
+			
+			#create a desc file
+			descstr = "chrom1 " + fasta_filename + " " + fasta_filename
+			descfilename = join(medicc_dir, "desc_r" + str(r) + ".txt")
+			f = open(descfilename, 'w')
+			f.write(descstr)
+			f.close()
+			
+			medicc_outdir = join(medicc_dir, "r" + str(r) + "_out")
+			cmd = "medicc.py " + descfilename + " " + medicc_outdir
+			print(cmd)
+			os.system(cmd)
+			
+			medicc_treefile = join(medicc_outdir, "tree_final.new")
+			medicc_treefile_local = join(dir, "r" + str(r) + "_medicc_tree.newick")
+			copyfile( medicc_treefile, medicc_treefile_local )
+			
+			cmd = "qdist/qdist " + tree_filename + " " + medicc_treefile_local + " > r" + str(r) + "_medicc.qtet"
+			print(cmd)
+			os.system(cmd)
+		
+		###############################################
+		# run Euclidean distance with NJ
+		###############################################
+		if run_euclid:
+			pass	#not implemented
 		
